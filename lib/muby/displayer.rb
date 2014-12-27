@@ -7,7 +7,7 @@ module Muby
       error("#{e.class}: #{e.message}")
       debug(e.backtrace.join("\n"))
     end
-    
+
     def trace(s)
       if Muby::OutputWindow.get_instance.ready?
         Muby::OutputWindow.get_instance.show(:trace, s)

@@ -23,7 +23,7 @@ module Muby
       end
       def self.get_pair(fg, bg)
         init_pairs
-        
+
         found = @@instances.find do |color|
           color.bg == bg && color.fg == fg
         end
@@ -31,13 +31,13 @@ module Muby
         found = @@instances.find do |color|
           color.bg.nil? && color.fg.nil?
         end unless found
-        
+
         found = @@instances.sort do |c1, c2|
           c1.used_at <=> c2.used_at
         end.first unless found
-        
+
         found.use(fg, bg)
-        
+
         found
       end
 
@@ -124,7 +124,7 @@ module Muby
       BLUE = Muby::Style.new(0, Ncurses.const_get("COLOR_BLUE"), :copy, true)
       CYAN = Muby::Style.new(0, Ncurses.const_get("COLOR_CYAN"), :copy, true)
       WHITE = Muby::Style.new(0, Ncurses.const_get("COLOR_WHITE"), :copy, true)
-      
+
       BOLD = Muby::Style.new(Ncurses.const_get("A_BOLD"), :copy, :copy, true)
       DIM = Muby::Style.new(Ncurses.const_get("A_DIM"), :copy, :copy, true)
       UNDERLINE = Muby::Style.new(Ncurses.const_get("A_UNDERLINE"), :copy, :copy, true)
@@ -135,7 +135,7 @@ module Muby
       PROTECT = Muby::Style.new(Ncurses.const_get("A_PROTECT"), :copy, :copy, true)
       ALTCHARSET = Muby::Style.new(Ncurses.const_get("A_ALTCHARSET"), :copy, :copy, true)
       CHARTEXT = Muby::Style.new(Ncurses.const_get("A_CHARTEXT"), :copy, :copy, true)
-      
+
       NORMAL = Muby::Style.new(Ncurses.const_get("A_NORMAL"), :copy, :copy, false)
     end
   end

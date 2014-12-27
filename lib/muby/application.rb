@@ -7,12 +7,12 @@ module Muby
     include Muby::Displayer
 
     def initialize
-      
+
       #
       # Load all user files
       #
       conf.load_user_files!
-      
+
       # Init all the ncurses magic.
       Ncurses.initscr
       Ncurses.raw
@@ -46,7 +46,7 @@ module Muby
           puts "Exiting muby..."
         end
       end
-      
+
       #
       # The main loop
       #

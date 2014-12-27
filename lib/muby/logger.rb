@@ -5,7 +5,7 @@
 module Muby::Logger
 
   include Muby::Configurable
-  
+
   #
   # Logs everything that gets read from the remote connection.
   #

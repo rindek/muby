@@ -129,7 +129,7 @@ class Muby::Connection
         end
       rescue RegexpError => error
         conf.anti_gags.delete(key)
-        exception(e) 
+        exception(e)
       end
     end
     returnValue
@@ -404,7 +404,7 @@ class Muby::Connection
     end
     return_value
   end
-  
+
   def colorize(s)
     conf.colors.each do |reg, colors|
       return colors if s.match(reg)

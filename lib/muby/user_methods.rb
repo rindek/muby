@@ -34,7 +34,7 @@ Check your backspace and left/right keys!
 You can scroll up to view earlier text with the 'Page Up' key.
 --------------------------------------------------------------
 
-This help text will no longer be automatically displayed once you 
+This help text will no longer be automatically displayed once you
 have edited the user_edited_config_file property of your
 configuration file.
 
@@ -92,7 +92,7 @@ ENDTEXT
     #
     def reconnect
       if @last_host && @last_port
-        connect(@last_host, @last_port) 
+        connect(@last_host, @last_port)
       else
         echo("No last connection known")
       end
@@ -235,12 +235,12 @@ ENDTEXT
           end
           update
         end
-      end 
+      end
       nil
     end
 
     def delete_buffer!
-      unless @handle_mode == :history_search!      
+      unless @handle_mode == :history_search!
         if @cursorPosition < @buffer.size
           @buffer = @buffer[0, @cursorPosition] + @buffer[@cursorPosition + 1, @buffer.size - @cursorPosition - 1]
           update
@@ -248,7 +248,7 @@ ENDTEXT
       end
       nil
     end
-    
+
     def resize_application!
       Muby::OutputWindow.get_instance.resize!
       Muby::InputWindow.get_instance.resize!
@@ -341,7 +341,7 @@ ENDTEXT
       end
       nil
     end
-    
+
     def previous_word_buffer!
       unless @handle_mode == :history_search!
         if @buffer.size > 0

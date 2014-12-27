@@ -46,13 +46,13 @@ module Muby
 In contrast to only displaying the input characters when there is a newline.",
         :gags => "The gags. All lines from the server are checked against these regular expressions.
 If any one matches that line will not be shown. Note that if you have flush == true, the characters may already have been shown.",
-        :remote_substitutions => "The remote substitutions. 
+        :remote_substitutions => "The remote substitutions.
 The same buffer that the remote_triggers work on will be searched for matches to the keys in this hash.
 All values to matching keys will replace the keys in the buffer.",
         :local_substitutions => "The local substitutions.
 The text you send to the server will be searched for matches to the keys in this hash.
 All values to matching keys will replace the keys in the text.",
-        :anti_gags => "The anti gags. 
+        :anti_gags => "The anti gags.
 If flush == false the lines matching these regular expressions will be shown as soon as they are matched.
 A line matching an anti gag and a gag will also be shown.",
         :shutdown_triggers => "The shutdown triggers. Code in this array will be run in order at shutdown.",
@@ -60,7 +60,7 @@ A line matching an anti gag and a gag will also be shown.",
 	:disconnect_triggers => "The disconnect triggers. Code in this array will be run in order when a connection is closed.",
         :startup_triggers => "The startup triggers. Code in this array will be run in order after the windows have been properly initialized.",
         :remote_triggers => 'The remote triggers.
-Each line received from the server will be checked against all regular expression keys in this hash, 
+Each line received from the server will be checked against all regular expression keys in this hash,
 and all values to matching keys will be executed with three parameters: the input window, the output window and the match object.
 Only if the return value of this execution is not false will the line be shown to the user.
 Example: conf.remote_triggers[/^You feel dazed$/] = Proc.new do |inwin, outwin, match| inwin.set_status_message("dazed") end',

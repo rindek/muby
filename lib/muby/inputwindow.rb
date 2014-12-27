@@ -3,7 +3,7 @@ require 'pathname'
 
 #
 # The fancy window that gets our input.
-# 
+#
 # The class handles everything to do with
 # the input window itself, the user callable
 # methods are in the UserMethods module.
@@ -21,7 +21,7 @@ class Muby::InputWindow
   include Muby::HelperMethods
 
   @@instance ||= nil
-  
+
   def self.get_instance
     @@instance ||= Muby::InputWindow.new
   end
@@ -73,7 +73,7 @@ class Muby::InputWindow
     @inputWindow.nodelay(true)
     @inputWindow.refresh
   end
-  
+
   def reload!
     do_startup_triggers
   end

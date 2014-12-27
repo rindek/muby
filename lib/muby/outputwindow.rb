@@ -54,7 +54,7 @@ class Muby::OutputWindow
 
     show_version
     refresh
-    
+
     @ready = true
   end
 
@@ -175,7 +175,7 @@ class Muby::OutputWindow
             to_print = match[1]
             linebreak = match[2]
             rest = match[3]
-            
+
             break if to_print.empty? and linebreak.empty?
 
             @outputBuffer.printw("%s", timestamp(to_print) + linebreak)

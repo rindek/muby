@@ -2,9 +2,9 @@
 module Muby
 
   module HelperMethods
-    
+
     include Muby::Styled
-    
+
     def execute(command, *args)
       execute_with_verbosity(:debug, command, *args)
     end
@@ -47,7 +47,7 @@ module Muby
         exception(e)
       end
     end
-    
+
   end
 
 end

@@ -3,7 +3,7 @@ module Muby
   class Completer
 
     attr_reader :completions
-    
+
     def initialize
       @completions = {}
     end
@@ -18,7 +18,7 @@ module Muby
       subhash = find_subhash(s, @completions) || {}
       find_endings(s, subhash)
     end
-    
+
     def store(s)
       s.split(/\W+/).each do |part|
         store_in_hash(part, @completions) unless part.empty?

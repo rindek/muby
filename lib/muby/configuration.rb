@@ -5,7 +5,7 @@ module Muby
 
 
   VERSION = "0.7.14" unless defined?(Muby::VERSION)
-  
+
   #
   # The class that encapsulates all configuration.
   #
@@ -52,7 +52,7 @@ module Muby
       }
 
       @single_shot_gags = []
-      
+
       @echo_keycodes = false
 
       @echo = true
@@ -64,11 +64,11 @@ module Muby
       @connection_status = true
 
       #
-      # options to control what you see 
+      # options to control what you see
       #
 
       @disable_blink = false
-      
+
       @timeformat = "%H:%M:%S"
 
       @broken_keycodes = {
@@ -99,15 +99,15 @@ module Muby
       @error_colors = [Ncurses.const_get("COLOR_WHITE"), Ncurses.const_get("COLOR_BLACK")]
 
       @flush = true
-      
+
       @gags = []
-      
+
       @colors = {}
 
       @anti_gags = []
-      
+
       @remote_substitutions = {}
-      
+
       @local_substitutions = {}
 
       #
@@ -123,15 +123,15 @@ module Muby
       @shutdown_triggers = []
 
       @remote_triggers = {}
-      
+
       @remote_character_triggers = {}
-      
+
       @local_triggers = {
         /^\/(.*)\n$/m => :execute_command!,
         /^!(.*)\n$/m => :shell_command!,
         /^#.*\n$/m => :ignore_command!
       }
-      
+
       @key_commands = {
         12 => :resize_application!, # ctrl-l
         Ncurses.const_get("KEY_PPAGE") => :scroll_up!,
@@ -178,21 +178,21 @@ module Muby
       @feed_completer_with_input = true
 
       @extra_completions = []
-      
+
       @loaded_rc_file = false
 
       @user_edited_config_file = false
-      
+
       @userdir = File.join(ENV["HOME"], "mubyrc.d")
 
       @history_file = File.join(@userdir, "history")
 
       @output_buffer = 1000
-      
+
       @input_height = 3
-      
-      @input_logfile = nil 
-      
+
+      @input_logfile = nil
+
       @output_logfile = nil
 
     end
@@ -204,7 +204,7 @@ module Muby
     def method_missing(*args)
       method_name = args[0].to_s
       var_name = method_name[/^[^=]*/]
-      
+
       setter = method_name =~ /=$/
       if setter
         return super unless args.size == 2
@@ -265,14 +265,14 @@ module Muby
         Muby::Displayer.debug(e.backtrace.join("\n"))
       end
     end
-    
+
     #
     # Tries to load all the users files, defined as
     # any file named .mubyrc or mubyrc in the users ENV["HOME"]
     # and all **/*.rb files in the users ENV["HOME"]/@userdir
     # with the root of the userdir taking precidence over subdirectories.
     # Directories starting with a . are ignored.
-    # 
+    #
     # If none of the mubyrc-files existed, it will try to create one
     # for the user to edit to his/her liking.
     #
@@ -290,7 +290,7 @@ module Muby
       unless @loaded_rc_file
         save_configuration_file!
       end
-      
+
       if File.exists?(@userdir)
         # Only load *.rb files within sub-directories of the current directory, and not the current directory's *.rb files!)
         # Test:  Dir[File.join(Dir.pwd, "*", "**", "*.rb")].each do |f| puts f end ; nil
@@ -308,7 +308,7 @@ module Muby
         Muby::Displayer.warn("#{@userdir} does not exist. If it did, *.rb in it would be loaded now.")
       end
     end
-    
+
     #
     # A non-raising method that tries to load +f+ and tells the output window about its success.
     #
@@ -320,7 +320,7 @@ module Muby
         Muby::Displayer.exception(e)
       end
     end
-    
+
     #
     # Will reload the entire app, ie the class files and the
     # user files.
@@ -339,7 +339,7 @@ module Muby
       end
       load_user_files!
     end
-    
+
     #
     # The not so magical at all method that prints our content
     # to a String so that we easily can save our current settings
@@ -383,7 +383,7 @@ conf.#{var_name} = #{value}"
   end
 
   #
-  # The module that provides the shorthand for 
+  # The module that provides the shorthand for
   # using classes.
   #
   module Configurable
@@ -391,5 +391,5 @@ conf.#{var_name} = #{value}"
       Configuration.get
     end
   end
-  
+
 end
