@@ -1,5 +1,5 @@
 
-require 'ncurses'
+require 'ncurses.rb'
 
 module Muby
 
