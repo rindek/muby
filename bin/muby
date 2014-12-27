@@ -31,7 +31,10 @@
 # http://jrandomhacker.info/Muby
 # http://rubyforge.org/projects/muby
 
+$LOAD_PATH.unshift File.join(File.dirname(__FILE__), '..', 'lib')
+
 require 'rubygems'
 require 'muby'
+require 'pry'
 
 Muby::Application.new
