@@ -1,5 +1,6 @@
 $: << File.join(File.dirname(__FILE__), "lib")
 require 'pp'
+require "muby/version"
 require "muby/user_window"
 require "muby/displayer"
 require "muby/configuration"

@@ -3,9 +3,6 @@ require 'ncurses.rb'
 
 module Muby
 
-
-  VERSION = "0.7.14" unless defined?(Muby::VERSION)
-
   #
   # The class that encapsulates all configuration.
   #
