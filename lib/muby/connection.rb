@@ -190,7 +190,7 @@ class Muby::Connection
   def getc
     c = @socket.getc
     log_input(c.chr) if c
-    c
+    c.ord
   end
 
   def process(c)
@@ -226,7 +226,7 @@ class Muby::Connection
             c = getc
           end
         else
-          warn("Got an unknown TELNET command (#{c.chr}) which I don't know how to handle. Expect strange behaviour...")
+          warn("Got an unknown TELNET command (#{c} -> #{c.ord} -> #{c.chr}) which I don't know how to handle. Expect strange behaviour...")
         end
       end
       return nil
